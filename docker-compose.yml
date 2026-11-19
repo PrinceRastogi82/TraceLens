@@ -1,0 +1,14 @@
+services:
+  clickhouse:
+    image: clickhouse/clickhouse-server:26.3.57
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+    environment:
+      CLICKHOUSE_USER: dev
+      CLICKHOUSE_PASSWORD: dev
+    volumes:
+      - chdata:/var/lib/clickhouse
+
+volumes:
+  chdata:
