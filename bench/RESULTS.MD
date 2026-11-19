@@ -47,7 +47,7 @@ Limits: synthetic traces, one table size, one lookup at a time (no concurrent re
 
 ## Method and limits (applies to all runs above)
 
-- Batcher runs: 2026-11-19. Node v24.13.0, ClickHouse 26.3.57 in Docker Desktop, table from `schema/001_spans.sql`. Git commit: not recorded yet (repo not created); add it once the repo exists.
+- Batcher runs: 2026-11-19. Node v24.13.0, ClickHouse 26.3.57 in Docker Desktop, table from `schema/001_spans.sql`. Git commit: 491b510  (first commit, created after the runs; code unchanged since).
 - Data is generated, not real: 8 spans per trace across 5 services (`bench-*`), 1 attribute per span, JSON over HTTP, no gzip. Real traces carry more attributes, so real rows are larger and throughput will differ. Do not quote these numbers as production throughput.
 - Client, ingest server and ClickHouse share one laptop and its CPU.
 - Latency is measured by the client: from sending a request until the full response is read (includes the ClickHouse insert, and the batch wait when batching is on). p50/p95/p99 are percentiles over all requests in one run.
